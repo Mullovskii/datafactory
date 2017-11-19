@@ -1,4 +1,4 @@
-<%= form_with(model: website, local: true) do |form| %>
+<%= simple_form_for @website do |form| %>
   <% if website.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(website.errors.count, "error") %> prohibited this website from being saved:</h2>
@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :country_id %>
-    <%= form.text_field :country_id, id: :website_country_id %>
+    <%= form.label "Где находится" %>
+    <%= form.association :country %>
   </div>
 
   <div class="field">
@@ -52,8 +52,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :valid %>
-    <%= form.check_box :valid, id: :website_valid %>
+    <%= form.label :valid_for_yandex %>
+    <%= form.check_box :valid_for_yandex, id: :website_valid %>
   </div>
 
   <div class="field">

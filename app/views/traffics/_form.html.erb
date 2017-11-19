@@ -1,4 +1,4 @@
-<%= form_with(model: traffic, local: true) do |form| %>
+<%= simple_form_for @traffic do |form| %>
   <% if traffic.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(traffic.errors.count, "error") %> prohibited this traffic from being saved:</h2>
@@ -13,12 +13,12 @@
 
   <div class="field">
     <%= form.label :country_id %>
-    <%= form.text_field :country_id, id: :traffic_country_id %>
+    <%= form.association :country, id: :traffic_country_id %>
   </div>
 
   <div class="field">
     <%= form.label :website_id %>
-    <%= form.text_field :website_id, id: :traffic_website_id %>
+    <%= form.association :website %>
   </div>
 
   <div class="field">

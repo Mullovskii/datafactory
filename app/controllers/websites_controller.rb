@@ -5,6 +5,8 @@ class WebsitesController < ApplicationController
   # GET /websites.json
   def index
     @websites = Website.all
+    # file = File.join(Rails.root, 'app', 'files', 'GeographyExtended-(alibaba.com)--(999)--(Month_2017_10_1).xlsx')
+    # p File.read(file)
   end
 
   # GET /websites/1
@@ -69,6 +71,6 @@ class WebsitesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def website_params
-      params.require(:website).permit(:country_id, :url, :company_id, :category, :description, :contacts, :monthly_visits, :country_rank, :valid, :status, :bounce_rate)
+      params.require(:website).permit(:country_id, :url, :company_id, :category, :description, :contacts, :monthly_visits, :country_rank, :valid_for_yandex, :status, :bounce_rate)
     end
 end

@@ -1,8 +1,9 @@
+<div class="container">
 <p id="notice"><%= notice %></p>
 
 <p>
   <strong>Country:</strong>
-  <%= @website.country %>
+  <%= @website.country.name %>
 </p>
 
 <p>
@@ -42,7 +43,7 @@
 
 <p>
   <strong>Valid:</strong>
-  <%= @website.valid %>
+  <%= @website.valid_for_yandex %>
 </p>
 
 <p>
@@ -57,3 +58,4 @@
 
 <%= link_to 'Edit', edit_website_path(@website) %> |
 <%= link_to 'Back', websites_path %>
+</div>
