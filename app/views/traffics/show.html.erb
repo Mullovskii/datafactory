@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @traffic.country %>
+</p>
+
+<p>
+  <strong>Website:</strong>
+  <%= @traffic.website %>
+</p>
+
+<p>
+  <strong>Country share:</strong>
+  <%= @traffic.country_share %>
+</p>
+
+<p>
+  <strong>Country visits:</strong>
+  <%= @traffic.country_visits %>
+</p>
+
+<p>
+  <strong>Bounce rate:</strong>
+  <%= @traffic.bounce_rate %>
+</p>
+
+<p>
+  <strong>Country visitors:</strong>
+  <%= @traffic.country_visitors %>
+</p>
+
+<p>
+  <strong>Annual turnover:</strong>
+  <%= @traffic.annual_turnover %>
+</p>
+
+<%= link_to 'Edit', edit_traffic_path(@traffic) %> |
+<%= link_to 'Back', traffics_path %>

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Website:</strong>
+  <%= @setup.website %>
+</p>
+
+<p>
+  <strong>Average bill:</strong>
+  <%= @setup.average_bill %>
+</p>
+
+<p>
+  <strong>Yandex net fee:</strong>
+  <%= @setup.yandex_net_fee %>
+</p>
+
+<p>
+  <strong>Yandex share:</strong>
+  <%= @setup.yandex_share %>
+</p>
+
+<%= link_to 'Edit', edit_setup_path(@setup) %> |
+<%= link_to 'Back', setups_path %>

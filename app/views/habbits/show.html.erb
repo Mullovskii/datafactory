@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @habbit.country %>
+</p>
+
+<p>
+  <strong>System:</strong>
+  <%= @habbit.system %>
+</p>
+
+<p>
+  <strong>Share:</strong>
+  <%= @habbit.share %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @habbit.description %>
+</p>
+
+<%= link_to 'Edit', edit_habbit_path(@habbit) %> |
+<%= link_to 'Back', habbits_path %>

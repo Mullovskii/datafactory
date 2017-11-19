@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  country: one
+  website: one
+  country_share: 1
+  country_visits: 1
+  bounce_rate: 1
+  country_visitors: 1
+  annual_turnover: 1
+
+two:
+  country: two
+  website: two
+  country_share: 1
+  country_visits: 1
+  bounce_rate: 1
+  country_visitors: 1
+  annual_turnover: 1

@@ -1,0 +1,2 @@
+module HabbitsHelper
+end

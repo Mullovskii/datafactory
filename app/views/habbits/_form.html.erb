@@ -1,0 +1,37 @@
+<%= form_with(model: habbit, local: true) do |form| %>
+  <% if habbit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(habbit.errors.count, "error") %> prohibited this habbit from being saved:</h2>
+
+      <ul>
+      <% habbit.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :country_id %>
+    <%= form.text_field :country_id, id: :habbit_country_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :system_id %>
+    <%= form.text_field :system_id, id: :habbit_system_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :share_id %>
+    <%= form.text_field :share_id, id: :habbit_share_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :habbit_description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

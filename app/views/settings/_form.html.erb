@@ -1,0 +1,32 @@
+<%= form_with(model: setting, local: true) do |form| %>
+  <% if setting.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(setting.errors.count, "error") %> prohibited this setting from being saved:</h2>
+
+      <ul>
+      <% setting.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :average_bill %>
+    <%= form.number_field :average_bill, id: :setting_average_bill %>
+  </div>
+
+  <div class="field">
+    <%= form.label :yandex_net_fee %>
+    <%= form.number_field :yandex_net_fee, id: :setting_yandex_net_fee %>
+  </div>
+
+  <div class="field">
+    <%= form.label :yandex_share %>
+    <%= form.number_field :yandex_share, id: :setting_yandex_share %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

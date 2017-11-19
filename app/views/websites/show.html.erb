@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @website.country %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @website.url %>
+</p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @website.company %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @website.category %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @website.description %>
+</p>
+
+<p>
+  <strong>Contacts:</strong>
+  <%= @website.contacts %>
+</p>
+
+<p>
+  <strong>Monthly visits:</strong>
+  <%= @website.monthly_visits %>
+</p>
+
+<p>
+  <strong>Country rank:</strong>
+  <%= @website.country_rank %>
+</p>
+
+<p>
+  <strong>Valid:</strong>
+  <%= @website.valid %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @website.status %>
+</p>
+
+<p>
+  <strong>Bounce rate:</strong>
+  <%= @website.bounce_rate %>
+</p>
+
+<%= link_to 'Edit', edit_website_path(@website) %> |
+<%= link_to 'Back', websites_path %>

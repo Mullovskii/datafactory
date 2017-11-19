@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Habbits</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Country</th>
+      <th>System</th>
+      <th>Share</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @habbits.each do |habbit| %>
+      <tr>
+        <td><%= habbit.country %></td>
+        <td><%= habbit.system %></td>
+        <td><%= habbit.share %></td>
+        <td><%= habbit.description %></td>
+        <td><%= link_to 'Show', habbit %></td>
+        <td><%= link_to 'Edit', edit_habbit_path(habbit) %></td>
+        <td><%= link_to 'Destroy', habbit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Habbit', new_habbit_path %>

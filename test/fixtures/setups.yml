@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  website: one
+  average_bill: 1
+  yandex_net_fee: 1
+  yandex_share: 1
+
+two:
+  website: two
+  average_bill: 1
+  yandex_net_fee: 1
+  yandex_share: 1

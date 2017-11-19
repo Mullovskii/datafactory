@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  country: one
+  system: one
+  share: one
+  description: MyText
+
+two:
+  country: two
+  system: two
+  share: two
+  description: MyText

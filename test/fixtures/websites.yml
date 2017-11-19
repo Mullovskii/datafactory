@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  country: one
+  url: MyString
+  company: one
+  category: 1
+  description: MyText
+  contacts: MyText
+  monthly_visits: 1
+  country_rank: 1
+  valid: false
+  status: 1
+  bounce_rate: 1
+
+two:
+  country: two
+  url: MyString
+  company: two
+  category: 1
+  description: MyText
+  contacts: MyText
+  monthly_visits: 1
+  country_rank: 1
+  valid: false
+  status: 1
+  bounce_rate: 1

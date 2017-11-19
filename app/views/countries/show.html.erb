@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @country.name %>
+</p>
+
+<p>
+  <strong>Sales region:</strong>
+  <%= @country.sales_region %>
+</p>
+
+<p>
+  <strong>Importer region:</strong>
+  <%= @country.importer_region %>
+</p>
+
+<p>
+  <strong>Market volume:</strong>
+  <%= @country.market_volume %>
+</p>
+
+<p>
+  <strong>Users:</strong>
+  <%= @country.users %>
+</p>
+
+<p>
+  <strong>Shoppers:</strong>
+  <%= @country.shoppers %>
+</p>
+
+<p>
+  <strong>Game market:</strong>
+  <%= @country.game_market %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @country.description %>
+</p>
+
+<%= link_to 'Edit', edit_country_path(@country) %> |
+<%= link_to 'Back', countries_path %>

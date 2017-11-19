@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Average bill:</strong>
+  <%= @setting.average_bill %>
+</p>
+
+<p>
+  <strong>Yandex net fee:</strong>
+  <%= @setting.yandex_net_fee %>
+</p>
+
+<p>
+  <strong>Yandex share:</strong>
+  <%= @setting.yandex_share %>
+</p>
+
+<%= link_to 'Edit', edit_setting_path(@setting) %> |
+<%= link_to 'Back', settings_path %>
