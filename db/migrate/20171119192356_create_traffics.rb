@@ -3,11 +3,11 @@ class CreateTraffics < ActiveRecord::Migration[5.1]
     create_table :traffics do |t|
       t.references :country, foreign_key: true
       t.references :website, foreign_key: true
-      t.integer :country_share
-      t.integer :country_visits
-      t.integer :bounce_rate
-      t.integer :country_visitors
-      t.integer :annual_turnover
+      t.decimal :country_share
+      t.integer :country_visits, :limit => 8
+      t.decimal :bounce_rate
+      t.integer :country_visitors, :limit => 8
+      t.integer :annual_turnover, :limit => 8
 
       t.timestamps
     end

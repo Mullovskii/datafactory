@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20171119193420) do
   create_table "habbits", force: :cascade do |t|
     t.bigint "country_id"
     t.bigint "system_id"
-    t.integer "share"
+    t.decimal "share"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -47,8 +47,8 @@ ActiveRecord::Schema.define(version: 20171119193420) do
 
   create_table "settings", force: :cascade do |t|
     t.integer "average_bill"
-    t.integer "yandex_net_fee"
-    t.integer "yandex_share"
+    t.decimal "yandex_net_fee"
+    t.decimal "yandex_share"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -56,8 +56,8 @@ ActiveRecord::Schema.define(version: 20171119193420) do
   create_table "setups", force: :cascade do |t|
     t.bigint "website_id"
     t.integer "average_bill"
-    t.integer "yandex_net_fee"
-    t.integer "yandex_share"
+    t.decimal "yandex_net_fee"
+    t.decimal "yandex_share"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["website_id"], name: "index_setups_on_website_id"
@@ -74,11 +74,11 @@ ActiveRecord::Schema.define(version: 20171119193420) do
   create_table "traffics", force: :cascade do |t|
     t.bigint "country_id"
     t.bigint "website_id"
-    t.integer "country_share"
-    t.integer "country_visits"
-    t.integer "bounce_rate"
-    t.integer "country_visitors"
-    t.integer "annual_turnover"
+    t.decimal "country_share"
+    t.bigint "country_visits"
+    t.decimal "bounce_rate"
+    t.bigint "country_visitors"
+    t.bigint "annual_turnover"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["country_id"], name: "index_traffics_on_country_id"
@@ -92,11 +92,11 @@ ActiveRecord::Schema.define(version: 20171119193420) do
     t.integer "category"
     t.text "description"
     t.text "contacts"
-    t.integer "monthly_visits"
+    t.bigint "monthly_visits"
     t.integer "country_rank"
     t.boolean "valid_for_yandex"
     t.integer "status"
-    t.integer "bounce_rate"
+    t.decimal "bounce_rate"
     t.index ["company_id"], name: "index_websites_on_company_id"
     t.index ["country_id"], name: "index_websites_on_country_id"
   end

@@ -7,11 +7,11 @@ class CreateWebsites < ActiveRecord::Migration[5.1]
       t.integer :category
       t.text :description
       t.text :contacts
-      t.integer :monthly_visits
+      t.integer :monthly_visits, :limit => 8
       t.integer :country_rank
       t.boolean :valid_for_yandex
       t.integer :status
-      t.integer :bounce_rate
+      t.decimal :bounce_rate
     end
   end
 end
