@@ -1,3 +1,3 @@
-<%- Website.all.each do |website| %>
-<%= website.url %>
-<%- end%>
+# <%- Website.where(url: "alibaba.com").take.traffics.each do |traffic| %>
+<%= traffic.country.name %> / <%= traffic.country_share %>
+# <%- end%>

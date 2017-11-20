@@ -11,10 +11,10 @@
       <th>Country</th>
       <th>Website</th>
       <th>Country share</th>
-      <th>Country visits</th>
+     <!--  <th>Country visits</th>
       <th>Bounce rate</th>
       <th>Country visitors</th>
-      <th>Annual turnover</th>
+      <th>Annual turnover</th> -->
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,13 +22,13 @@
   <tbody>
     <% @traffics.each do |traffic| %>
       <tr>
-        <td><%= traffic.country %></td>
-        <td><%= traffic.website %></td>
-        <td><%= traffic.country_share %></td>
-        <td><%= traffic.country_visits %></td>
+        <td><%= traffic.country.name %></td>
+        <td><%= traffic.website.url %></td>
+        <td><%= traffic.country_share %>%</td>
+       <!--  <td><%= traffic.country_visits %></td>
         <td><%= traffic.bounce_rate %></td>
         <td><%= traffic.country_visitors %></td>
-        <td><%= traffic.annual_turnover %></td>
+        <td><%= traffic.annual_turnover %></td> -->
         <td><%= link_to 'Show', traffic %></td>
         <td><%= link_to 'Edit', edit_traffic_path(traffic) %></td>
         <td><%= link_to 'Destroy', traffic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
