@@ -20,7 +20,14 @@ class CountriesController < ApplicationController
 
   def foreign_buyers
     # @websites = @country.websites.where.not(country_id: @country.id).order("monthly_visits DESC")
-    @traffics = Traffic.where(website_id: Website.where(country_id: @country.id))
+
+
+
+    Traffic.where(website_id: Website.where(country_id: @country.id)).each do |traffic|
+      
+    end
+
+
   end
 
   def internal_turnover

@@ -33,3 +33,13 @@ Country.create(name: "Indonesia", sales_region: true)
 	    end
  	end
 
+
+
+
+
+
+
+
+
+
+

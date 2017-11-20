@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   end
   resources :websites
 
-  root :to => 'websites#index'
+  root :to => 'countries#index'
+  get 'indonesia', to: 'scrypt#indonesia'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
