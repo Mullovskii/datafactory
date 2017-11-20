@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 20171119193420) do
   end
 
   create_table "traffics", force: :cascade do |t|
+    t.integer "mother_country_id"
     t.bigint "country_id"
     t.bigint "website_id"
     t.decimal "country_share"

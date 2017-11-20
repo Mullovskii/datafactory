@@ -66,6 +66,9 @@
       <th>Country</th>
       <th>Website</th>
       <th>Country share</th>
+      <th>Yearly visits</th>
+      <th>Annual turnover ($80)</th>
+      <th>Yandex fee(0.8%)</th>
      <!--  <th>Country visits</th>
       <th>Bounce rate</th>
       <th>Country visitors</th>
@@ -79,11 +82,10 @@
       <tr>
         <td><%= traffic.country.name %></td>
         <td><%= traffic.website.url %></td>
-        <td><%= traffic.country_share %>%</td>
-       <!--  <td><%= traffic.country_visits %></td>
-        <td><%= traffic.bounce_rate %></td>
-        <td><%= traffic.country_visitors %></td>
-        <td><%= traffic.annual_turnover %></td> -->
+        <td><%= (traffic.country_share*100).round(2) %>%</td>
+        <td><%= traffic.country_visits/1000000 %>mln</td>
+        <td>$<%= traffic.annual_turnover/1000000 %>mln</td>
+        <td>$<%= ((traffic.annual_turnover/1000)*Setting.last.yandex_net_fee).round %>K</td>
         <td><%= link_to 'Show', traffic %></td>
         <td><%= link_to 'Edit', edit_traffic_path(traffic) %></td>
         <td><%= link_to 'Destroy', traffic, method: :delete, data: { confirm: 'Are you sure?' } %></td>

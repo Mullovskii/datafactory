@@ -1,6 +1,6 @@
 
-Setting.create(average_bill: 80, yandex_net_fee: 0.8, yandex_share: 10, conversion: 3)
-Country.create(name: "Indonesia", sales_region: true)
+setting = Setting.create!(average_bill: 80, yandex_net_fee: 0.008, yandex_share: 0.10, conversion: 0.03)
+Country.create!(name: "Indonesia", sales_region: true)
 
 # SEED WEBSITES
 	file = File.join(Rails.root, 'app', 'files', 'Indonesia', 'TopSites-(Shopping)--(360)--(Month-2017-10-1).xlsx')
@@ -8,7 +8,7 @@ Country.create(name: "Indonesia", sales_region: true)
     xlsx = Roo::Excelx.new(file)
     xlsx.sheet(1).column(1).each do |website|
     	unless website == 'Domain'
-    		Website.create(url: website, category: 0, status: 1, country_id: Country.where(name: "Indonesia").take.id)
+    		Website.create!(url: website, category: 0, status: 1, country_id: Country.where(name: "Indonesia").take.id)
     	end
     end
 
@@ -23,11 +23,12 @@ Country.create(name: "Indonesia", sales_region: true)
 
 	    hash = xlsx.sheet(1).each(country: 'Country', share: 'Traffic share') do |hash|
 	    	unless Country.where(name: hash[:country]).take || hash[:country] == 'Country'
-	    		Country.create(name: hash[:country])
+	    		Country.create!(name: hash[:country])
 	    	end	    
 	    	unless Traffic.where(website_id: website.id, country_id: Country.where(name: hash[:country]).take).take 
 	    		unless hash[:country] == 'Country' || website.url == 'Domain' 
-	    			Traffic.create(website_id: website.id, country_id: Country.where(name: hash[:country]).take.id, country_share: hash[:share]*100)	
+	    			traffic = Traffic.create!(mother_country_id: website.country.id, website_id: website.id, country_id: Country.where(name: hash[:country]).take.id, country_share: hash[:share])
+	    			traffic.update!(country_visits: (traffic.country_share*website.monthly_visits*12), annual_turnover: (traffic.country_share*website.monthly_visits*setting.average_bill*setting.conversion*12))	
 	    		end
 	    	end
 	    end

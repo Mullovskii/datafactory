@@ -1,6 +1,7 @@
 class CreateTraffics < ActiveRecord::Migration[5.1]
   def change
     create_table :traffics do |t|
+      t.integer :mother_country_id
       t.references :country, foreign_key: true
       t.references :website, foreign_key: true
       t.decimal :country_share
