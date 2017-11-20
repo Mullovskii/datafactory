@@ -1,14 +1,16 @@
 <div class="container">
 <p id="notice"><%= notice %></p>
 
-<h1>Пайплайн продаж</h1>
+<h1>Websites list</h1>
 
 <table class="table table-nonfluid">
   <thead>
     <tr>
-      <th>Страна</th>
-      <th>Сайт</th>
-      <th>Категория</th>
+      <th>Country</th>
+      <th>URL</th>
+      <th>Monthly visits</th>
+      <th>Category</th>
+      <th>Status</th>
    <!--    <th>Description</th>
       <th>Contacts</th>
       <th>Monthly visits</th>
@@ -23,8 +25,17 @@
   <tbody>
     <% @websites.each do |website| %>
       <tr>
-        <td><%= website.country.name %></td>
-        <td><%= website.url %></td>
+        <td><%= link_to website.country.name, website.country, :class=>"test" %></td>
+        <b>
+        <td><b><%= link_to website.url, website %></b></td>
+        <%- if website.monthly_visits %>
+          <td><%= (website.monthly_visits/1000) %>K</td>
+        <%- else %>
+          <td></td>
+        <%- end %>
+        <td><b><%= website.category %></b></td>
+        <td><b><%= website.status %></b></td>
+
 <!--         <td><%= website.company %></td>
  -->        <!-- <td><%= website.category %></td> -->
       <td><%= @info %></td>
@@ -35,9 +46,9 @@
         <td><%= website.valid_for_yandex %></td>
         <td><%= website.status %></td>
         <td><%= website.bounce_rate %></td> -->
-        <td><%= link_to 'Показать', website %></td>
-        <td><%= link_to 'Править', edit_website_path(website) %></td>
-        <td><%= link_to 'Удалить', website, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<!--         <td><%= link_to 'Показать', website %></td>
+ -->        <td><%= link_to 'Edit', edit_website_path(website) %></td>
+        <td><%= link_to 'Delete', website, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

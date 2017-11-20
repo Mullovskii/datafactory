@@ -1,67 +1,63 @@
 <div class="container">
 <p id="notice"><%= notice %></p>
 
-
-<h1><%= @website.url %></h1>
-<p>
-  <strong>Country of presence:</strong>
-  <%= @website.country.name %>
-</p>
-
-<p>
-  <strong>Company:</strong>
-  <%= @website.company %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @website.category %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @website.description %>
-</p>
-
-<p>
-  <strong>Contacts:</strong>
-  <%= @website.contacts %>
-</p>
-
-<p>
-  <strong>Monthly visits:</strong>
-  <%= @website.monthly_visits %>
-</p>
-
-<p>
-  <strong>Country rank:</strong>
-  <%= @website.country_rank %>
-</p>
-
-<p>
-  <strong>Valid:</strong>
-  <%= @website.valid_for_yandex %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @website.status %>
-</p>
-
-<p>
-  <strong>Bounce rate:</strong>
-  <%= @website.bounce_rate %>
-</p>
-
-<%= link_to 'Edit', edit_website_path(@website) %> |
-<%= link_to 'Back', websites_path %>
-
+<%= link_to 'Back to website list', websites_path %>
 
 <br>
 <br>
-<br>
 
-<h5>Traffic by region</h5>
+<h3><%= @website.url %></h3>
+
+<table class="table table-nonfluid">
+  <thead>
+    <tr>
+      <th>Country of presence</th>
+      <th>Monthly visits</th>
+      <th>Category</th>
+      <th>Company</th>
+      <th>Contacts</th>
+      <th>Country rank</th>
+      <th>Status</th>
+      <th>Bounce rate</th>
+  
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td><%= @website.country.name %></td>
+        
+        <%- if @website.monthly_visits %>
+          <td><%= @website.monthly_visits/1000%>K</td>
+        <%- else %>
+          <td></td>
+        <%- end %>
+
+        <td><%= @website.category %></td>
+        
+        <%- if @website.company %>
+          <td>$<%= @website.company.name %></td>
+        <%- else %>
+          <td></td>
+        <%- end %>
+
+        <td><%= @website.contacts %></td>
+        <td><%= @website.country_rank %></td>
+        <td><%= @website.status %></td>
+        <td><%= @website.bounce_rate %></td>
+
+        <td><%= link_to 'Edit', edit_website_path(@website) %></td>
+      </tr>
+  </tbody>
+</table>
+
+<br>
+</div>
+
+
+
+<h5><%= "Traffic of" + " " + @website.url %></h5>
 
 <table class="table table-nonfluid">
 
@@ -79,7 +75,7 @@
   </thead>
 
   <tbody>
-    <% @website.traffics.each do |traffic| %>
+    <% @traffics.each do |traffic| %>
       <tr>
         <td><%= traffic.country.name %></td>
         <td><%= traffic.website.url %></td>

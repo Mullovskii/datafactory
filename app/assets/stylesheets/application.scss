@@ -4,3 +4,46 @@
 .table-nonfluid {
    width: auto !important;
 }
+
+.container {
+   	padding: 10px;
+}
+
+
+.mininav{
+
+	li{
+		display: inline-block;
+		a{
+			color: grey;
+		}
+	}
+	.mininav_link{
+
+	}
+}
+
+
+.nav.nav-center {
+    margin:0 auto;
+    display: inline-block;
+    float:none;
+}
+
+.collapse.navbar-collapse {
+	
+}
+
+.navbar-nav.mr-auto{
+	.nav-item{
+		.nav-link{
+			color: black;
+			a{
+				color: black;
+			}
+		}
+	}
+}
+
+
+

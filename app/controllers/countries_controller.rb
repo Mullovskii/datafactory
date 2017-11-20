@@ -1,15 +1,30 @@
 class CountriesController < ApplicationController
-  before_action :set_country, only: [:show, :edit, :update, :destroy]
+  before_action :set_country, only: [:show, :edit, :update, :destroy, :buys_from, :internal_turnover, :foreign_buyers]
 
   # GET /countries
   # GET /countries.json
   def index
-    @countries = Country.all
+    @countries = Country.all.order("sales_region")
   end
 
   # GET /countries/1
   # GET /countries/1.json
   def show
+    @websites = Website.where(country_id: @country.id).order("monthly_visits DESC")
+  end
+
+  def buys_from
+    # @websites = @country.websites.where.not(country_id: @country.id).order("monthly_visits DESC")
+    @traffics = @country.traffics.where(country_id: @country.id).where.not(website_id: Website.where(country_id: @country.id))
+  end
+
+  def foreign_buyers
+    # @websites = @country.websites.where.not(country_id: @country.id).order("monthly_visits DESC")
+    @traffics = Traffic.where(website_id: Website.where(country_id: @country.id))
+  end
+
+  def internal_turnover
+    @traffics = @country.traffics.where(country_id: @country.id)
   end
 
   # GET /countries/new

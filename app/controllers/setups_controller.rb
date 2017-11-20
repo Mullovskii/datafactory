@@ -69,6 +69,6 @@ class SetupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def setup_params
-      params.require(:setup).permit(:website_id, :average_bill, :yandex_net_fee, :yandex_share)
+      params.require(:setup).permit(:website_id, :average_bill, :yandex_net_fee, :yandex_share, :conversion)
     end
 end

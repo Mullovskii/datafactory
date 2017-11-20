@@ -7,9 +7,9 @@
 <table class="table table-nonfluid">
   <thead>
     <tr>
-      <th>Страна</th>
-      <th>Продажи в стране</th>
-      <th>Бординг систем</th>
+      <th>Country</th>
+      <th>Sales region</th>
+      <th>Importer country</th>
     <!--   <th>Market volume</th>
       <th>Users</th>
       <th>Shoppers</th>
@@ -22,7 +22,7 @@
   <tbody>
     <% @countries.each do |country| %>
       <tr>
-        <td><%= country.name %></td>
+        <td><%= link_to country.name, country %></td>
         <td><%= country.sales_region %></td>
         <td><%= country.importer_region %></td>
         <!-- <td><%= country.market_volume %></td>
@@ -30,10 +30,9 @@
         <td><%= country.shoppers %></td>
         <td><%= country.game_market %></td>
         <td><%= country.description %></td> -->
-        <td><%= link_to 'Показать', country %></td>
-        <td><%= link_to 'Править', edit_country_path(country) %></td>
-        <td><%= link_to 'Удалить', country, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <td><%= link_to 'Edit', edit_country_path(country) %></td>
+<!--         <td><%= link_to 'Удалить', country, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+ -->      </tr>
     <% end %>
   </tbody>
 </table>

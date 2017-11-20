@@ -10,6 +10,8 @@ class WebsitesController < ApplicationController
   # GET /websites/1
   # GET /websites/1.json
   def show
+    @traffics = @website.traffics.order("country_share desc")
+
   end
 
   # GET /websites/new

@@ -69,6 +69,6 @@ class SettingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def setting_params
-      params.require(:setting).permit(:average_bill, :yandex_net_fee, :yandex_share)
+      params.require(:setting).permit(:average_bill, :yandex_net_fee, :yandex_share, :conversion)
     end
 end

@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20171119193420) do
   end
 
   create_table "settings", force: :cascade do |t|
+    t.decimal "conversion"
     t.integer "average_bill"
     t.decimal "yandex_net_fee"
     t.decimal "yandex_share"
@@ -55,6 +56,7 @@ ActiveRecord::Schema.define(version: 20171119193420) do
 
   create_table "setups", force: :cascade do |t|
     t.bigint "website_id"
+    t.decimal "conversion"
     t.integer "average_bill"
     t.decimal "yandex_net_fee"
     t.decimal "yandex_share"
