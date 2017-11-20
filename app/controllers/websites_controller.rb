@@ -5,8 +5,7 @@ class WebsitesController < ApplicationController
   # GET /websites.json
   def index
     @websites = Website.all
-    # file = File.join(Rails.root, 'app', 'files', 'GeographyExtended-(alibaba.com)--(999)--(Month_2017_10_1).xlsx')
-    # p File.read(file)
+   
   end
 
   # GET /websites/1
