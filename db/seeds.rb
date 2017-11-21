@@ -35,8 +35,18 @@
 #  	end
 
 
-# SEED INFLOWS
+Inflow.destroy_all
 
+# UPGRADE TRAFFIC
+
+	Traffic.all.each do |traffic|
+		unless traffic.mother_country_id == traffic.website.country_id
+			traffic.update!(mother_country_id: traffic.website.country_id)
+		end
+	end
+
+
+# SEED INFLOWS
 	Country.all.each do |mother_country| 
 		Traffic.where(mother_country_id: mother_country.id).each do |traffic|
 			if traffic.website.valid_for_yandex
@@ -50,6 +60,7 @@
 	end
 
 
+	
 
 
 
