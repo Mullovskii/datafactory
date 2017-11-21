@@ -39,10 +39,12 @@
 
 	Country.all.each do |mother_country| 
 		Traffic.where(mother_country_id: mother_country.id).each do |traffic|
-			if inflow = Inflow.where(exporter_country_id: mother_country.id, importer_country_id: traffic.country_id).take
-				inflow.update!(annual_turnover: inflow.annual_turnover + traffic.annual_turnover)
-			else
-				Inflow.create!(exporter_country_id: mother_country.id, importer_country_id: traffic.country_id, annual_turnover: traffic.annual_turnover)
+			if traffic.website.valid_for_yandex
+				if inflow = Inflow.where(exporter_country_id: mother_country.id, importer_country_id: traffic.country_id).take
+					inflow.update!(annual_turnover: inflow.annual_turnover + traffic.annual_turnover)
+				else
+					Inflow.create!(exporter_country_id: mother_country.id, importer_country_id: traffic.country_id, annual_turnover: traffic.annual_turnover)
+				end
 			end
 		end
 	end

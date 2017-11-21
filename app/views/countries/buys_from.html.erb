@@ -46,8 +46,9 @@
     <tr>
       <th>Country</th>
       <th>URL</th>
-      <th>Monthly country visits</th>
-      <th>Turnover</th>
+      <th>Country visits (yearly)</th>
+      <th>Turnover (yearly)</th>
+      <th>Fee (yearly, 0.8%)</th>
       <th>Category</th>
       <th>Status</th>
    <!--    <th>Description</th>
@@ -67,14 +68,20 @@
         <td><b><%= traffic.website.country.name %></b></td>
         <td><b><%= link_to traffic.website.url, traffic.website %></b></td>
         <%- if traffic.website.monthly_visits %>
-          <%- @country_visits = (traffic.website.monthly_visits/1000*(traffic.country_share/100)).round %>
+          <%- @country_visits = (traffic.website.monthly_visits*12/1000*(traffic.country_share)).round %>
           <td><%= @country_visits %>K</td>
         <%- else %>
           <td></td>
         <%- end %>
 
         <%- if @country_visits && traffic.website.setup %>
-          <td>$<%= @country_visits*traffic.website.setup.average_bill*(traffic.website.setup.conversion/100)  %>K</td>
+          <td>$<%= @country_visits*12*traffic.website.setup.average_bill*traffic.website.setup.conversion %>K</td>
+        <%- else %>
+          <td></td>
+        <%- end %>
+
+        <%- if @country_visits && traffic.website.setup %>
+          <td>$<%= @country_visits*12*traffic.website.setup.average_bill*traffic.website.setup.conversion*traffic.website.setup.yandex_net_fee  %>K</td>
         <%- else %>
           <td></td>
         <%- end %>

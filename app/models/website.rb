@@ -5,7 +5,7 @@ class Website < ApplicationRecord
   has_many :countries, through: :traffics
   has_one :setup
 
-  enum category: [ 'Marketplace', 'Electronics', 'Apparel', 'Classifieds', 'Webservice', 'Food']
+  enum category: [ 'Marketplace', 'Electronics', 'Apparel', 'Classifieds', 'Webservice', 'Food', 'Communications', 'Media', 'Aggregator', 'News', 'Porno', 'Exhange', 'Betting', 'Casino', 'Other']
   enum status: [ 'Invalid', 'Awaiting', 'Underway', 'Boarded']
 
   after_create :generate_setup
