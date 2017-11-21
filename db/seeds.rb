@@ -1,5 +1,5 @@
 
-setting = Setting.create!(average_bill: 80, yandex_net_fee: 0.008, yandex_share: 0.10, conversion: 0.03)
+setting = Setting.create!(average_bill: 30, yandex_net_fee: 0.008, yandex_share: 0.10, conversion: 0.03)
 Country.create!(name: "Indonesia", sales_region: true)
 
 # SEED WEBSITES
@@ -35,8 +35,17 @@ Country.create!(name: "Indonesia", sales_region: true)
  	end
 
 
+# SEED INFLOWS
 
-
+# 	Country.all.each do |mother_country| 
+# 		Traffic.where(mother_country_id: mother_country.id).each do |traffic|
+# 			if inflow = Inflow.where(exporter_country_id: mother_country.id, importer_country_id: traffic.country_id).take
+# 				inflow.update!(annual_turnover: inflow.annual_turnover + traffic.annual_turnover)
+# 			else
+# 				Inflow.create!(exporter_country_id: mother_country.id, importer_country_id: traffic.country_id, annual_turnover: traffic.annual_turnover)
+# 			end
+# 		end
+# 	end
 
 
 

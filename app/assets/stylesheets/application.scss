@@ -15,7 +15,15 @@
 	li{
 		display: inline-block;
 		a{
-			color: grey;
+			color: black;
+			background-color: #FFCD00;
+		    border: none;
+		    padding: 10px 20px;
+		    text-align: center;
+		    text-decoration: none;
+		    display: inline-block;
+		    font-size: 14px;
+		    border-radius: 12px;
 		}
 	}
 	.mininav_link{
@@ -45,5 +53,13 @@
 	}
 }
 
+.colored_heading h3{
+	 color: #FF0000;
+}
+
+.table_a a{
+	color: grey;
+	
+}
 
 

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :inflows
   resources :setups
   resources :settings
   resources :habbits

@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Inflows</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Exporter country</th>
+      <th>Importer country</th>
+      <th>Annual turnover</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @inflows.each do |inflow| %>
+      <tr>
+        <td><%= inflow.exporter_country_id %></td>
+        <td><%= inflow.importer_country_id %></td>
+        <td><%= inflow.annual_turnover %></td>
+        <td><%= link_to 'Show', inflow %></td>
+        <td><%= link_to 'Edit', edit_inflow_path(inflow) %></td>
+        <td><%= link_to 'Destroy', inflow, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Inflow', new_inflow_path %>

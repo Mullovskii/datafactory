@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  exporter_country_id: 1
+  importer_country_id: 1
+  annual_turnover: 1
+
+two:
+  exporter_country_id: 1
+  importer_country_id: 1
+  annual_turnover: 1

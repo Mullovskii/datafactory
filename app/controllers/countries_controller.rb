@@ -19,15 +19,7 @@ class CountriesController < ApplicationController
   end
 
   def foreign_buyers
-    # @websites = @country.websites.where.not(country_id: @country.id).order("monthly_visits DESC")
-
-
-
-    Traffic.where(website_id: Website.where(country_id: @country.id)).each do |traffic|
-      
-    end
-
-
+      @inflows = Inflow.where(exporter_country_id: @country.id).order("annual_turnover DESC")
   end
 
   def internal_turnover

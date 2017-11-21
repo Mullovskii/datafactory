@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Exporter country:</strong>
+  <%= @inflow.exporter_country_id %>
+</p>
+
+<p>
+  <strong>Importer country:</strong>
+  <%= @inflow.importer_country_id %>
+</p>
+
+<p>
+  <strong>Annual turnover:</strong>
+  <%= @inflow.annual_turnover %>
+</p>
+
+<%= link_to 'Edit', edit_inflow_path(@inflow) %> |
+<%= link_to 'Back', inflows_path %>
