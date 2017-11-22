@@ -26,15 +26,11 @@ class SystemsController < ApplicationController
   def create
     @system = System.new(system_params)
 
-    respond_to do |format|
       if @system.save
-        format.html { redirect_to @system, notice: 'System was successfully created.' }
-        format.json { render :show, status: :created, location: @system }
+        redirect_back(fallback_location: root_path)
       else
-        format.html { render :new }
-        format.json { render json: @system.errors, status: :unprocessable_entity }
+        
       end
-    end
   end
 
   # PATCH/PUT /systems/1

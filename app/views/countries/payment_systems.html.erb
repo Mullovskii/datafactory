@@ -1,0 +1,159 @@
+<div class="container">
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'Back to country list', countries_path %>
+
+<br>
+<br>
+
+<div class="colored_heading">
+<h1><%= @country.name %></h1>
+</div>
+
+<br>
+<ul class="mininav">
+  <li class="mininav_link" > 
+      <%= link_to "Top websites", country_path(@country), :class=>"nav-link"  %>
+  </li>
+
+  <li class="mininav_link" > 
+      <%= link_to "Top importers", foreign_buyers_country_path(@country), :class=>"nav-link"  %>
+  </li>
+
+  <li class="mininav_link" > 
+      <%= link_to "Buys from", buys_from_country_path(@country), :class=>"nav-link"  %>
+  </li>
+
+  <li class="mininav_link" > 
+      <%= link_to "Internal market", internal_turnover_country_path(@country), :class=>"nav-link"  %>
+  </li>
+
+  <li class="mininav_link" > 
+      <%= link_to "Payment systems", payment_systems_country_path(@country), :class=>"nav-link"  %>
+  </li>
+
+</ul>
+
+<br>
+<br>
+<br>
+<br>
+
+
+<h5><%= "How people pay in" + " " + @country.name + " " + "(Adyen)"%></h5>
+
+
+
+<table class="table table-nonfluid">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Share</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @habbits.each do |habbit| %>
+
+      <tr>
+        <td><b><%= link_to habbit.system.name, habbit.system %></b></td>
+        <td><b><%= habbit.system.payment_type %></b></td>
+        <td><b><%= habbit.share %></b>%</td>
+        <td><b><%= habbit.description %></b></td>
+  
+        <td><%= link_to 'Edit', edit_habbit_path(habbit) %></td>
+        <td><%= link_to 'X', habbit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+</div>
+
+
+
+<h6> Add new system </h6>
+
+
+<%= simple_form_for System.new do |form| %>
+  
+  <ul>
+    <li>
+      <div class="field">
+        <%= form.input :name %>
+      </div>
+    </li>
+
+    <li>
+      <div class="field">
+        <%= form.input :payment_type, collection: System.payment_types.keys %>
+      </div>
+    </li>
+
+     <li>
+      <div class="field">
+        <%= form.input :source_type, collection: System.source_types.keys %>
+      </div>
+    </li>
+
+<li>
+  <div class="form-actions col-sm-offset-3">
+    <%= form.button :submit %>
+  </div>
+</li>
+
+</ul>
+
+<% end %>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<h6> Link system to the country</h6>
+
+
+<%= simple_form_for Habbit.new do |form| %>
+  
+  <%= form.hidden_field :country_id, value: @country.id  %>
+
+  <ul>
+    
+    <li>
+      <div class="field">
+        <%= form.association :system %>
+      </div>
+    </li>
+
+    <li>
+      <div class="field">
+        <%= form.input :share %>
+      </div>
+    </li>
+
+<li>
+  <div class="form-actions col-sm-offset-3">
+    <%= form.button :submit, "Link" %>
+  </div>
+</li>
+
+</ul>
+
+<% end %>
+
+
+
+
+
+
+
+
+

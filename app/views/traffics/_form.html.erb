@@ -12,13 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :country_id %>
-    <%= form.association :country, id: :traffic_country_id %>
+    <%= form.association :country %>
   </div>
 
   <div class="field">
-    <%= form.label :website_id %>
-    <%= form.association :website %>
+    <%= form.association :website, label_method: :url  %>
   </div>
 
   <div class="field">
@@ -46,7 +44,8 @@
     <%= form.number_field :annual_turnover, id: :traffic_annual_turnover %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-actions col-sm-offset-3">
+    <%= form.button :submit %>
   </div>
+
 <% end %>

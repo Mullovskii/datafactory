@@ -7,7 +7,7 @@
 <br>
 
 <div class="colored_heading">
-<h3><%= @country.name %></h3>
+<h1><%= @country.name %></h1>
 </div>
 
 <br>
@@ -31,13 +31,17 @@
   </li>
 
   <li class="mininav_link" > 
-      <%= link_to "Payment systems", "#", :class=>"nav-link"  %>
+      <%= link_to "Payment systems", payment_systems_country_path(@country), :class=>"nav-link"  %>
   </li>
 
 </ul>
 
 
 <br>
+<br>
+<br>
+<br>
+
 
 
 <h5><%= "Internal traffic of" + " " + @country.name%></h5>
@@ -68,14 +72,14 @@
         <td><b><%= traffic.website.country.name %></b></td>
         <td><b><%= link_to traffic.website.url, traffic.website %></b></td>
         <%- if traffic.website.monthly_visits %>
-          <%- @country_visits = (traffic.website.monthly_visits/1000*(traffic.country_share/100)).round %>
+          <%- @country_visits = (traffic.website.monthly_visits/1000*(traffic.country_share)).round %>
           <td><%= @country_visits %>K</td>
         <%- else %>
           <td></td>
         <%- end %>
 
         <%- if @country_visits && traffic.website.setup %>
-          <td>$<%= @country_visits*traffic.website.setup.average_bill*(traffic.website.setup.conversion/100)  %>K</td>
+          <td>$<%= (@country_visits*traffic.website.setup.average_bill*traffic.website.setup.conversion).round  %>K</td>
         <%- else %>
           <td></td>
         <%- end %>
@@ -90,8 +94,6 @@
 </table>
 
 <br>
-
-<%= link_to 'Добавить сайт', new_website_path %>
 
 
 </div>

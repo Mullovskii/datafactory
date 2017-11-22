@@ -18,8 +18,8 @@
       <th>Country of presence</th>
       <th>Monthly visits</th>
       <th>Category</th>
-      <th>Company</th>
-      <th>Contacts</th>
+<!--       <th>Company</th>
+ -->      <th>Contacts</th>
       <th>Country rank</th>
       <th>Status</th>
       <th>Bounce rate</th>
@@ -40,11 +40,11 @@
 
         <td><%= @website.category %></td>
         
-        <%- if @website.company %>
+   <!--      <%- if @website.company %>
           <td>$<%= @website.company.name %></td>
         <%- else %>
           <td></td>
-        <%- end %>
+        <%- end %> -->
 
         <td><%= @website.contacts %></td>
         <td><%= @website.country_rank %></td>
@@ -61,14 +61,48 @@
 
 
 
-<h5><%= "Traffic of" + " " + @website.url %></h5>
+<h5><%= "Traffic of" + " " + @website.url + " " + "by countries" %></h5>
+
+
+<%= simple_form_for Traffic.new do |form| %>
+  
+  <ul>
+    <li>
+      <div class="field">
+        <%= form.association :country %>
+      </div>
+    </li>
+
+  <%= form.hidden_field :website_id, value: @website.id  %>
+  <%= form.hidden_field :mother_country_id, value: @website.country.id  %>
+
+
+<li>
+  <div class="field">
+    <%= form.label :country_share %>
+    <%= form.number_field :country_share, id: :traffic_country_share %>
+  </div>
+</li>
+
+<li>
+  <div class="form-actions col-sm-offset-3">
+    <%= form.button :submit %>
+  </div>
+</li>
+
+</ul>
+
+<% end %>
+
+
+
+
 
 <table class="table table-nonfluid">
 
   <thead>
     <tr>
       <th>Country</th>
-      <th>Website</th>
       <th>Country share</th>
       <th>Yearly visits</th>
       <th>Annual turnover ($80)</th>
@@ -84,15 +118,30 @@
   <tbody>
     <% @traffics.each do |traffic| %>
       <tr>
-        <td><%= traffic.country.name %></td>
-        <td><%= traffic.website.url %></td>
+        <td><%= link_to traffic.country.name, traffic.country %></td>
+        <%- if traffic.country_share %>
         <td><%= (traffic.country_share*100).round(2) %>%</td>
-        <td><%= traffic.country_visits/1000000 %>mln</td>
+        <% end %>
+
+        <%- if traffic.country_visits %>
+          <td><%= traffic.country_visits/1000000 %>mln</td>
+        <% else %>
+          <td>mln</td>
+        <% end %>
+        <%- if traffic.annual_turnover %>
         <td>$<%= traffic.annual_turnover/1000000 %>mln</td>
-        <td>$<%= ((traffic.annual_turnover/1000)*Setting.last.yandex_net_fee).round %>K</td>
-        <td><%= link_to 'Show', traffic %></td>
+        <% else %>
+          <td>$</td>
+        <% end %>
+
+        <%- if traffic.annual_turnover %>
+          <td>$<%= ((traffic.annual_turnover/1000)*Setting.last.yandex_net_fee).round %>K</td>
+        <% else %>
+          <td>$</td>
+        <% end %>
+
         <td><%= link_to 'Edit', edit_traffic_path(traffic) %></td>
-        <td><%= link_to 'Destroy', traffic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'X', traffic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -100,6 +149,5 @@
 
 <br>
 
-<%= link_to 'New Traffic', new_traffic_path %>
 
 </div>

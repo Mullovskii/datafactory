@@ -28,7 +28,7 @@ class TrafficsController < ApplicationController
 
     respond_to do |format|
       if @traffic.save
-        format.html { redirect_to @traffic, notice: 'Traffic was successfully created.' }
+        format.html { redirect_to @traffic.website, notice: 'Traffic was successfully created.' }
         format.json { render :show, status: :created, location: @traffic }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class TrafficsController < ApplicationController
   def update
     respond_to do |format|
       if @traffic.update(traffic_params)
-        format.html { redirect_to @traffic, notice: 'Traffic was successfully updated.' }
+        format.html { redirect_to @traffic.website, notice: 'Traffic was successfully updated.' }
         format.json { render :show, status: :ok, location: @traffic }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class TrafficsController < ApplicationController
   def destroy
     @traffic.destroy
     respond_to do |format|
-      format.html { redirect_to traffics_url, notice: 'Traffic was successfully destroyed.' }
+      format.html { redirect_to @traffic.website, notice: 'Traffic was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

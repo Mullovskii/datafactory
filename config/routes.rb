@@ -11,11 +11,12 @@ Rails.application.routes.draw do
     	get 'buys_from'
     	get 'internal_turnover'
     	get 'foreign_buyers'
+      get 'payment_systems'
   	end
   end
   resources :websites
 
-  root :to => 'countries#index'
+  root :to => 'websites#index'
   get 'indonesia', to: 'scrypt#indonesia'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

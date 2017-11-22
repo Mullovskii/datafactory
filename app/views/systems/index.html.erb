@@ -1,9 +1,13 @@
 <div class="container">
 <p id="notice"><%= notice %></p>
 
-<h1>Systems</h1>
+<h1>Payment methods worldwide</h1>
 
-<table>
+<div class="btn">
+  <%= link_to '+ method', new_system_path  %>
+</div>
+
+<table class="table table-nonfluid">
   <thead>
     <tr>
       <th>Name</th>
@@ -29,5 +33,4 @@
 
 <br>
 
-<%= link_to 'New System', new_system_path %>
 </div>

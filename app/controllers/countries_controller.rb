@@ -1,5 +1,5 @@
 class CountriesController < ApplicationController
-  before_action :set_country, only: [:show, :edit, :update, :destroy, :buys_from, :internal_turnover, :foreign_buyers]
+  before_action :set_country, only: [:show, :edit, :update, :destroy, :buys_from, :internal_turnover, :foreign_buyers, :payment_systems]
 
   # GET /countries
   # GET /countries.json
@@ -15,7 +15,7 @@ class CountriesController < ApplicationController
 
   def buys_from
     # @websites = @country.websites.where.not(country_id: @country.id).order("monthly_visits DESC")
-    @traffics = @country.traffics.where(country_id: @country.id).where.not(website_id: Website.where(country_id: @country.id))
+    @traffics = @country.traffics.where(country_id: @country.id).where.not(website_id: Website.where(country_id: @country.id)).order("country_share ASC")
   end
 
   def foreign_buyers
@@ -23,7 +23,13 @@ class CountriesController < ApplicationController
   end
 
   def internal_turnover
-    @traffics = @country.traffics.where(country_id: @country.id)
+    @traffics = @country.traffics.where(country_id: @country.id, mother_country_id: @country.id).order("country_share DESC")
+  end
+
+  def payment_systems
+    @system = System.new
+    @habbit = Habbit.new
+    @habbits = @country.habbits
   end
 
   # GET /countries/new

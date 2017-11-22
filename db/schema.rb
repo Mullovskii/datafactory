@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171121114109) do
+ActiveRecord::Schema.define(version: 20171122160656) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,10 +25,10 @@ ActiveRecord::Schema.define(version: 20171121114109) do
     t.string "name"
     t.boolean "sales_region"
     t.boolean "importer_region"
-    t.integer "market_volume"
-    t.integer "users"
-    t.integer "shoppers"
-    t.integer "game_market"
+    t.bigint "market_volume"
+    t.bigint "users"
+    t.bigint "shoppers"
+    t.bigint "game_market"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 20171121114109) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "source_type"
   end
 
   create_table "traffics", force: :cascade do |t|

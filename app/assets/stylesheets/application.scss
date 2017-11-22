@@ -7,8 +7,18 @@
 
 .container {
    	padding: 10px;
+   	font-weight: 100;
 }
 
+
+th{
+	color: grey;
+	font-weight: 100;
+}
+
+p#notice{
+	color: green;
+}
 
 .mininav{
 
@@ -16,14 +26,16 @@
 		display: inline-block;
 		a{
 			color: black;
-			background-color: #FFCD00;
-		    border: none;
-		    padding: 10px 20px;
+		    border: 2px;
+		    border-color: #FFCD00;
+		    border-style: solid;
+		    padding: 5px 10px;
 		    text-align: center;
 		    text-decoration: none;
 		    display: inline-block;
 		    font-size: 14px;
-		    border-radius: 12px;
+			font-weight: 500;
+		    border-radius: 5px;
 		}
 	}
 	.mininav_link{
@@ -31,6 +43,23 @@
 	}
 }
 
+ul{
+	display: inline-block;
+			float:left;
+
+	li{
+		display: inline-block;
+	}
+}
+
+.field{
+	margin: 10px;
+}
+
+textarea{
+	min-width: 400px;
+	min-height: 200px;
+}
 
 .nav.nav-center {
     margin:0 auto;
@@ -42,15 +71,34 @@
 	
 }
 
+.btn{
+	color: black;
+	background-color: #FFCD00;
+	margin: 10px; 
+	a{
+	color: black;
+	}
+}
+
+label{
+	margin-right: 20px;
+}
+
+
 .navbar-nav.mr-auto{
 	.nav-item{
 		.nav-link{
 			color: black;
+
 			a{
 				color: black;
+
 			}
 		}
 	}
+}
+
+input{
 }
 
 .colored_heading h3{
@@ -59,7 +107,10 @@
 
 .table_a a{
 	color: grey;
-	
+}
+
+h1{
+	font-weight: 100;
 }
 
 

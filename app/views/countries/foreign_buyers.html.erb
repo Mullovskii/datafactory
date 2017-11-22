@@ -7,7 +7,7 @@
 <br>
 
 <div class="colored_heading">
-<h3><%= @country.name %></h3>
+<h1><%= @country.name %></h1>
 </div>
 
 <br>
@@ -33,13 +33,16 @@
   </li>
 
   <li class="mininav_link" > 
-      <%= link_to "Payment systems", "#", :class=>"nav-link"  %>
+      <%= link_to "Payment systems", payment_systems_country_path(@country), :class=>"nav-link"  %>
   </li>
 
 </ul>
 
 
 
+<br>
+<br>
+<br>
 <br>
 
 
@@ -62,8 +65,8 @@
           <%- @inflows.each do |inflow|  %>
             <tr>
               <td><%= link_to Country.where(id: inflow.importer_country_id).take.name %></td>
-              <td>$<%= inflow.annual_turnover/1000000 %>mln</td>
-              <td>$<%= inflow.annual_turnover*Setting.last.yandex_net_fee %></td>
+              <td>$<%= inflow.annual_turnover/1000000 %> mln</td>
+              <td>$<%= (inflow.annual_turnover*Setting.last.yandex_net_fee).round %></td>
             </tr>
           <% end%>
         <% end%>

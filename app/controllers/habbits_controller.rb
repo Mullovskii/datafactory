@@ -28,7 +28,7 @@ class HabbitsController < ApplicationController
 
     respond_to do |format|
       if @habbit.save
-        format.html { redirect_to @habbit, notice: 'Habbit was successfully created.' }
+        format.html { redirect_to payment_systems_country_path(@habbit.country), notice: 'Habbit was successfully created.' }
         format.json { render :show, status: :created, location: @habbit }
       else
         format.html { render :new }
@@ -69,6 +69,6 @@ class HabbitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def habbit_params
-      params.require(:habbit).permit(:country_id, :system_id, :share_id, :description)
+      params.require(:habbit).permit(:country_id, :system_id, :share, :description)
     end
 end

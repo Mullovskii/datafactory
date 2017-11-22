@@ -7,7 +7,7 @@
 <br>
 
 <div class="colored_heading">
-<h3><%= @country.name %></h3>
+<h1><%= @country.name %></h1>
 </div>
 
 <br>
@@ -29,20 +29,26 @@
   </li>
 
   <li class="mininav_link" > 
-      <%= link_to "Payment systems", "#", :class=>"nav-link"  %>
+      <%= link_to "Payment systems", payment_systems_country_path(@country), :class=>"nav-link"  %>
   </li>
 
 </ul>
 
+<br>
+<br>
+<br>
+<br>
+
+
 <table class="table table-nonfluid">
   <thead>
     <tr>
-      <th>Sales region</th>
-      <th>Importer country</th>
       <th>E-commerce volume</th>
       <th>Internet audience</th>
       <th>E-shoppers</th>
       <th>Game market</th>
+      <th>Sales region</th>
+      <th>Importer country</th>
    <!--    <th>Description</th>
       <th>Contacts</th>
       <th>Monthly visits</th>
@@ -56,6 +62,10 @@
 
   <tbody>
       <tr>
+        <td>$<%= @country.market_volume %></td>
+        <td><%= @country.users %> mln</td> 
+        <td><%= @country.shoppers %>mln</td>
+        <td>$<%= @country.game_market %></td>
         <%- if @country.sales_region == true %>
           <td> Yes </td>
         <%- else%>
@@ -66,11 +76,6 @@
         <%- else%>
           <td> No </td>
         <% end %>
-        
-        <td>$<%= @country.market_volume %></td>
-        <td><%= @country.users %></td>
-        <td><%= @country.shoppers %></td>
-        <td>$<%= @country.game_market %></td>
 
         <td><%= link_to 'Edit', edit_country_path(@country) %></td>
       </tr>
@@ -80,7 +85,11 @@
 <br>
 
 
-<h5><%= "Top e-commerce websites in" + " " + @country.name %></h5>
+<h5><%= "Top e-commerce websites in" + " " + @country.name + " " + "(#{@country.websites.length})" %></h5>
+
+<div class="btn">
+  <%= link_to '+ website', new_website_path  %>
+</div>
 
 <table class="table table-nonfluid">
   <thead>
@@ -132,8 +141,6 @@
 </table>
 
 <br>
-
-<%= link_to 'Добавить сайт', new_website_path %>
 
 
 </div>
