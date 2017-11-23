@@ -94,7 +94,7 @@
         <%- else%>
           <td> No </td>
         <% end %>
-        
+
          <%- if @country.importer_region == true %>
           <td> Yes </td>
         <%- else%>
@@ -107,6 +107,18 @@
 </table>
 
 <br>
+
+<div class="show_more_block">
+  <a class="more" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    More info
+  </a>
+</div>
+
+<div class="collapse" id="collapseExample">
+  <div class="card card-block">
+    <%= @country.description %>
+  </div>
+</div>
 
 
 <h5><%= "Top e-commerce websites in" + " " + @country.name + " " + "(#{Website.where(country_id: @country.id).length})" %></h5>

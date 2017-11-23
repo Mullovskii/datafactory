@@ -5,6 +5,27 @@
    width: auto !important;
 }
 
+.card.card-block{
+	margin-bottom: 40px;
+	padding: 15px;
+	max-width: 600px;
+}
+
+.more{
+	color: #24B47E;
+	margin-left: 15px;
+	border: 1px solid;
+	border-color: #24B47E;
+	font-weight: 100;
+	border-radius: 5px;
+	padding: 5px;
+
+}
+
+.show_more_block{
+	margin-bottom: 40px;
+}
+
 .container {
    	padding: 10px;
    	font-weight: 100;
