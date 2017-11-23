@@ -20,6 +20,11 @@ p#notice{
 	color: green;
 }
 
+.img_logo{
+	max-width: 182px;
+	max-height: 38px;
+}
+
 .mininav{
 
 	li{
@@ -40,6 +45,40 @@ p#notice{
 	}
 	.mininav_link{
 
+	}
+}
+
+
+.pagination{
+	a.previous_page{
+	color: #FFCD00;
+	font-weight: 100;
+	margin-right: 10px;
+	}
+
+	.previous_page.disabled{
+	color: grey;
+	font-weight: 100;
+	margin-right: 10px;
+	}
+
+
+	a.next_page{
+	color: #FFCD00;
+	font-weight: 100;
+	margin-left: 10px;
+	}
+
+	a{
+	font-weight: 100;
+	margin-right: 10px;
+	}
+
+	em.current{
+	font-weight: 100;
+	font-style: normal;
+	color: grey;
+	margin-right: 10px;
 	}
 }
 

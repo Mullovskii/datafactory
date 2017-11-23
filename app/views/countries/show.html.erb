@@ -85,7 +85,7 @@
 <br>
 
 
-<h5><%= "Top e-commerce websites in" + " " + @country.name + " " + "(#{@country.websites.length})" %></h5>
+<h5><%= "Top e-commerce websites in" + " " + @country.name + " " + "(#{Website.where(country_id: @country.id).length})" %></h5>
 
 <div class="btn">
   <%= link_to '+ website', new_website_path  %>

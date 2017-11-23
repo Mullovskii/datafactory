@@ -1,0 +1,24 @@
+<%# app/views/students/_list.html.erb %>
+<div id="filterrific_results">
+
+  <div>
+    <%= page_entries_info websites # provided by will_paginate %>
+  </div>
+
+  <table>
+    <tr>
+      <th>URL</th>
+      <th>Country</th>
+      <th>Registered at</th>
+    </tr>
+    <% websites.each do |website| %>
+      <tr>
+        <td><%= link_to(website.url, website_path(website)) %></td>
+        <td><%= website.country.name %></td>
+        <td><%= website.decorated_created_at %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<%= will_paginate websites # provided by will_paginate %>

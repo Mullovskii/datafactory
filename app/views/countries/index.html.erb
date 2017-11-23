@@ -4,6 +4,10 @@
 
 <h1>Countries</h1>
 
+<div class="btn">
+  <%= link_to '+ country', new_country_path  %>
+</div>
+
 <table class="table table-nonfluid">
   <thead>
     <tr>
@@ -67,6 +71,7 @@
 
 <br>
 
-<%= link_to 'Добавить страну', new_country_path %>
+<%= will_paginate @countries %>
+
 </div>
 

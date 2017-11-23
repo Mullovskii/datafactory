@@ -29,6 +29,10 @@ gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'simple_form'
 gem "roo", "~> 2.7.0"
 gem 'jquery-rails'
+# gem 'filterrific'
+gem 'will_paginate', '~> 3.1.0'
+
+
 # gem 'slim'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'

@@ -1,10 +1,13 @@
+require 'builder'
+require 'will_paginate'
+
 class WebsitesController < ApplicationController
   before_action :set_website, only: [:show, :edit, :update, :destroy]
 
   # GET /websites
   # GET /websites.json
   def index
-    @websites = Website.all.order("monthly_visits DESC")  
+    @websites = Website.paginate(:page => params[:page], :per_page => 30).order("monthly_visits DESC")
   end
 
   # GET /websites/1
