@@ -62,29 +62,29 @@
 
   <tbody>
       <tr>
-        <%- if website.market_volume %>
-          <td><%= website.market_volume/1000000000 %>bn</td>
+        <%- if @country.market_volume %>
+          <td><%= @country.market_volume/1000000000 %>bn</td>
         <%- else %>
           <td></td>
         <%- end %>
 
 
-        <%- if website.users %>
-          <td><%= website.market_volume/1000000 %>mln</td>
+        <%- if @country.users %>
+          <td><%= @country.market_volume/1000000 %>mln</td>
         <%- else %>
           <td></td>
         <%- end %>
 
 
-        <%- if website.shoppers %>
-          <td><%= website.shoppers/1000000 %>mln</td>
+        <%- if @country.shoppers %>
+          <td><%= @country.shoppers/1000000 %>mln</td>
         <%- else %>
           <td></td>
         <%- end %>
 
 
-        <%- if website.game_market %>
-          <td><%= website.shoppers/1000000 %>mln</td>
+        <%- if @country.game_market %>
+          <td><%= @country.game_market/1000000 %>mln</td>
         <%- else %>
           <td></td>
         <%- end %>
