@@ -123,11 +123,35 @@
         <td><%= (traffic.country_share*100).round(2) %>%</td>
         <% end %>
 
+        <%- if traffic.website.monthly_visits %>
+          <%- @country_visits = ((traffic.website.monthly_visits*12*traffic.country_share)/1000).round %>
+          <td><%= @country_visits %>K</td>
+        <%- else %>
+          <td></td>
+        <%- end %>
+
+        <%- if @country_visits && traffic.website.setup %>
+          <td>$<%= (@country_visits*traffic.website.setup.average_bill*traffic.website.setup.conversion).round %>K</td>
+        <%- else %>
+          <td></td>
+        <%- end %>
+
+        <%- if @country_visits && traffic.website.setup %>
+          <td>$<%= (@country_visits*traffic.website.setup.average_bill*traffic.website.setup.conversion*traffic.website.setup.yandex_net_fee).round  %>K</td>
+        <%- else %>
+          <td></td>
+        <%- end %>
+
+
+<!-- 
+
+
         <%- if traffic.country_visits %>
           <td><%= traffic.country_visits/1000000 %>mln</td>
         <% else %>
           <td>mln</td>
         <% end %>
+
         <%- if traffic.annual_turnover %>
         <td>$<%= traffic.annual_turnover/1000000 %>mln</td>
         <% else %>
@@ -138,7 +162,7 @@
           <td>$<%= ((traffic.annual_turnover/1000)*Setting.last.yandex_net_fee).round %>K</td>
         <% else %>
           <td>$</td>
-        <% end %>
+        <% end %> -->
 
         <td><%= link_to 'Edit', edit_traffic_path(traffic) %></td>
         <td><%= link_to 'X', traffic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
