@@ -31,6 +31,7 @@ gem "roo", "~> 2.7.0"
 gem 'jquery-rails'
 # gem 'filterrific'
 gem 'will_paginate', '~> 3.1.0'
+gem 'devise'
 
 
 # gem 'slim'
