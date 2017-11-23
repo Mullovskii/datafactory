@@ -62,15 +62,39 @@
 
   <tbody>
       <tr>
-        <td>$<%= @country.market_volume %></td>
-        <td><%= @country.users %> mln</td> 
-        <td><%= @country.shoppers %>mln</td>
-        <td>$<%= @country.game_market %></td>
+        <%- if website.market_volume %>
+          <td><%= website.market_volume/1000000000 %>bn</td>
+        <%- else %>
+          <td></td>
+        <%- end %>
+
+
+        <%- if website.users %>
+          <td><%= website.market_volume/1000000 %>mln</td>
+        <%- else %>
+          <td></td>
+        <%- end %>
+
+
+        <%- if website.shoppers %>
+          <td><%= website.shoppers/1000000 %>mln</td>
+        <%- else %>
+          <td></td>
+        <%- end %>
+
+
+        <%- if website.game_market %>
+          <td><%= website.shoppers/1000000 %>mln</td>
+        <%- else %>
+          <td></td>
+        <%- end %>
+
         <%- if @country.sales_region == true %>
           <td> Yes </td>
         <%- else%>
           <td> No </td>
         <% end %>
+        
          <%- if @country.importer_region == true %>
           <td> Yes </td>
         <%- else%>
