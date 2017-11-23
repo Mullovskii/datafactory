@@ -64,7 +64,7 @@
         <%- unless @inflows.length == 0  %>
           <%- @inflows.each do |inflow|  %>
             <tr>
-              <td><%= link_to Country.where(id: inflow.importer_country_id).take.name %></td>
+              <td><%= link_to Country.where(id: inflow.importer_country_id).take.name, Country.where(id: inflow.importer_country_id).take %></td>
               <td>$<%= inflow.annual_turnover/1000000 %> mln</td>
               <td>$<%= ((inflow.annual_turnover*Setting.last.yandex_net_fee)/1000).round %>K</td>
             </tr>
