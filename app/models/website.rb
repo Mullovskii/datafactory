@@ -5,7 +5,7 @@ class Website < ApplicationRecord
   has_many :countries, through: :traffics
   has_one :setup, dependent: :destroy
 
-  enum category: [ 'Marketplace', 'Electronics', 'Apparel', 'Classifieds', 'Webservice', 'Food', 'Communications', 'Media', 'Aggregator', 'News', 'Porno', 'Exhange', 'Betting', 'Casino', 'Other']
+  enum category: [ 'Marketplace', 'Electronics', 'Apparel', 'Classifieds', 'Webservice', 'Food', 'Communications', 'Media', 'Aggregator', 'News', 'Porno', 'Exhange', 'Betting', 'Casino', 'Coupon', 'Tickets', 'Auction'. 'Other']
   enum status: [ 'Invalid', 'Awaiting', 'Pipelined', 'Underway', 'Boarded']
 
   after_create :generate_setup
