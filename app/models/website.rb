@@ -3,7 +3,7 @@ class Website < ApplicationRecord
   belongs_to :company, optional: true
   has_many :traffics, dependent: :destroy
   has_many :countries, through: :traffics
-  has_one :setup
+  has_one :setup, dependent: :destroy
 
   enum category: [ 'Marketplace', 'Electronics', 'Apparel', 'Classifieds', 'Webservice', 'Food', 'Communications', 'Media', 'Aggregator', 'News', 'Porno', 'Exhange', 'Betting', 'Casino', 'Other']
   enum status: [ 'Invalid', 'Awaiting', 'Pipelined', 'Underway', 'Boarded']

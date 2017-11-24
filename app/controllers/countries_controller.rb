@@ -15,7 +15,7 @@ class CountriesController < ApplicationController
 
   def buys_from
     # @websites = @country.websites.where.not(country_id: @country.id).order("monthly_visits DESC")
-    @traffics = @country.traffics.where(country_id: @country.id).where.not(website_id: Website.where(country_id: @country.id)).order("country_share ASC")
+    @traffics = @country.traffics.where(country_id: @country.id).order("country_visits DESC").where.not(website_id: Website.where(country_id: @country.id))
   end
 
   def foreign_buyers
@@ -23,7 +23,7 @@ class CountriesController < ApplicationController
   end
 
   def internal_turnover
-    @traffics = @country.traffics.where(country_id: @country.id, mother_country_id: @country.id).order("country_share DESC")
+    @traffics = @country.traffics.where(country_id: @country.id, mother_country_id: @country.id).order("country_visits DESC")
   end
 
   def payment_systems
