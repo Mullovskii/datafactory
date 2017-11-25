@@ -19,10 +19,11 @@
       <th>Monthly visits</th>
       <th>Category</th>
 <!--       <th>Company</th>
- -->      <th>Contacts</th>
+ -->      
       <th>Country rank</th>
+      <th>Valid</th>
       <th>Status</th>
-      <th>Bounce rate</th>
+      <!-- <th>Bounce rate</th> -->
   
       <th colspan="3"></th>
     </tr>
@@ -46,17 +47,48 @@
           <td></td>
         <%- end %> -->
 
-        <td><%= @website.contacts %></td>
+        
         <td><%= @website.country_rank %></td>
-        <td><%= @website.status %></td>
-        <td><%= @website.bounce_rate %></td>
 
-        <td><%= link_to 'Edit', edit_website_path(@website) %></td>
+        <%- if @website.valid_for_yandex == true %>
+          <td> <%= image_tag('/images/success.svg', :class => "success") %> </td>
+        <%- else%>
+          <td> No </td>
+        <% end %>
+
+
+        <td><%= @website.status %></td>
+        <!-- <td><%= @website.bounce_rate %></td> -->
+
+
+        <td> 
+        <%= link_to edit_website_path(@website) do %>
+          <%= image_tag '/images/pencil.svg', :class => "success" %>
+        <% end %>
+        </td>
+
+        <td><%= link_to 'Delete', @website, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
       </tr>
   </tbody>
 </table>
 
 <br>
+</div>
+
+<div class="show_more_block">
+  <a class="more" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    Contacts & more
+  </a>
+</div>
+
+<div class="collapse" id="collapseExample">
+  <div class="card card-block">
+    <b> Contacts: </b> <%= @website.contacts %>
+    <br>
+    <br>
+    <b> More info: </b> <%= @website.description %>
+  </div>
 </div>
 
 
@@ -98,7 +130,7 @@
 
 
 
-<table class="table table-nonfluid">
+<table class="table table-nonfluid footer">
 
   <thead>
     <tr>
@@ -164,7 +196,13 @@
           <td>$</td>
         <% end %> -->
 
-        <td><%= link_to 'Edit', edit_traffic_path(traffic) %></td>
+        
+        <td> 
+        <%= link_to edit_traffic_path(traffic) do %>
+          <%= image_tag '/images/pencil.svg', :class => "success" %>
+        <% end %>
+        </td>
+
         <td><%= link_to 'X', traffic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

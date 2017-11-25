@@ -2,7 +2,28 @@
 
 
 .table-nonfluid {
-   width: auto !important;
+   width: 100%;
+}
+
+.table-nonfluid {
+   width: 100%;
+}
+
+.table-nonfluid.footer {
+   background-color: rgba(245, 248, 250, 0.62);
+   td{
+   padding-left: 30px;
+   }
+   th{
+   padding-left: 30px;
+   }
+}
+
+.globe{
+	max-width: 100px;
+	float: right;
+	margin-bottom: 30px;
+	margin-top: -50px;
 }
 
 .card.card-block{
@@ -150,11 +171,22 @@ label{
 	margin-right: 20px;
 }
 
+a.country_link{
+
+	
+		color: #0d44a0;
+		font-weight: 100;
+
+}
+
+.success{
+	max-width: 20px;
+}
 
 .navbar-nav.mr-auto{
 	.nav-item{
 		.nav-link{
-			color: black;
+			color: #0054b9;
 
 			a{
 				color: black;
@@ -169,6 +201,7 @@ input{
 
 .colored_heading h3{
 	 color: #FF0000;
+	 font-weight:100;
 }
 
 .table_a a{

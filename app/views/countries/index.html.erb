@@ -3,6 +3,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Countries</h1>
+<%= image_tag('/images/globe.svg', :class => "globe") %>
 
 <div class="btn">
   <%= link_to '+ country', new_country_path  %>
@@ -53,16 +54,21 @@
 
 
         <%- if country.sales_region == true %>
-          <td> Yes </td>
+          <td> <%= image_tag('/images/success.svg', :class => "success") %> </td>
         <%- else%>
           <td> No </td>
         <% end %>
          <%- if country.importer_region == true %>
-          <td> Yes </td>
+          <td> <%= image_tag('/images/success.svg', :class => "success") %> </td>
         <%- else%>
           <td> No </td>
         <% end %>
-        <td><%= link_to 'Edit', edit_country_path(country) %></td>
+        
+        <td> 
+        <%= link_to edit_country_path(country) do %>
+          <%= image_tag '/images/pencil.svg', :class => "success" %>
+        <% end %>
+        </td>
 <!--         <td><%= link_to 'Удалить', country, method: :delete, data: { confirm: 'Are you sure?' } %></td>
  -->      </tr>
     <% end %>

@@ -90,18 +90,22 @@
         <%- end %>
 
         <%- if @country.sales_region == true %>
-          <td> Yes </td>
+          <td> <%= image_tag('/images/success.svg', :class => "success") %> </td>
         <%- else%>
           <td> No </td>
         <% end %>
 
          <%- if @country.importer_region == true %>
-          <td> Yes </td>
+          <td> <%= image_tag('/images/success.svg', :class => "success") %> </td>
         <%- else%>
           <td> No </td>
         <% end %>
 
-        <td><%= link_to 'Edit', edit_country_path(@country) %></td>
+        <td> 
+        <%= link_to edit_country_path(@country) do %>
+          <%= image_tag '/images/pencil.svg', :class => "success" %>
+        <% end %>
+        </td>
       </tr>
   </tbody>
 </table>
@@ -127,7 +131,7 @@
   <%= link_to '+ website', new_website_path  %>
 </div>
 
-<table class="table table-nonfluid">
+<table class="table table-nonfluid footer">
   <thead>
     <tr>
       <th>URL</th>
@@ -169,8 +173,8 @@
         <td><%= website.status %></td>
         <td><%= website.bounce_rate %></td> -->
 <!--         <td><%= link_to 'Показать', website %></td>
- -->        <td><%= link_to 'Edit', edit_website_path(website) %></td>
-        <td><%= link_to 'Delete', website, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+ -->        
+        
       </tr>
     <% end %>
   </tbody>

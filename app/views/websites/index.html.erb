@@ -2,6 +2,8 @@
 <p id="notice"><%= notice %></p>
 
 <h1> <%= "Websites list (#{Website.all.length})" %></h1>
+<%= image_tag('/images/target.svg', :class => "globe") %>
+
 
 
 <div class="btn">
@@ -31,7 +33,7 @@
   <tbody>
     <% @websites.each do |website| %>
       <tr>
-        <td><%= link_to website.country.name, website.country, :class=>"test" %></td>
+        <td><%= link_to website.country.name, website.country, :class=>"country_link" %></td>
         <b>
         <td><b><%= link_to website.url, website %></b></td>
         <%- if website.monthly_visits %>
@@ -42,7 +44,7 @@
         <td><b><%= website.category %></b></td>
 
         <%- if website.valid_for_yandex == true %>
-          <td> Yes </td>
+          <td> <%= image_tag('/images/success.svg', :class => "success") %> </td>
         <%- else%>
           <td> No </td>
         <% end %>
@@ -61,8 +63,12 @@
         <td><%= website.status %></td>
         <td><%= website.bounce_rate %></td> -->
 <!--         <td><%= link_to 'Показать', website %></td>
- -->        <td><%= link_to 'Edit', edit_website_path(website) %></td>
-        <td><%= link_to 'Delete', website, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+ -->    
+        <td> 
+        <%= link_to edit_website_path(website) do %>
+          <%= image_tag '/images/pencil.svg', :class => "success" %>
+        <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
