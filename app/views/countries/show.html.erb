@@ -137,6 +137,7 @@
       <th>URL</th>
       <th>Monthly visits</th>
       <th>Category</th>
+      <th>Valid</th>
       <th>Status</th>
    <!--    <th>Description</th>
       <th>Contacts</th>
@@ -160,6 +161,11 @@
           <td></td>
         <%- end %>
         <td><b><%= website.category %></b></td>
+        <%- if website.valid_for_yandex == true %>
+          <td> <%= image_tag('/images/success.svg', :class => "success") %> </td>
+        <%- else%>
+          <td> No </td>
+        <% end %>
         <td><b><%= website.status %></b></td>
 
 <!--         <td><%= website.company %></td>
