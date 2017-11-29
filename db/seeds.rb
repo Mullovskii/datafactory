@@ -53,16 +53,16 @@
     xlsx = Roo::Spreadsheet.open(file)
     xlsx = Roo::Excelx.new(file)
     xlsx.sheet(1).column(1).each do |site|
-    	unless site == 'Domain' || Website.where(url: site).take
-    		Website.create!(url: site, valid_for_yandex: true, category: 0, status: 1, country_id: Country.where(name: "China").take.id)
-    		if File.join(Rails.root, 'app', 'files', 'china', "GeographyExtended-(#{site})--(999)--(Month_2017_10_1).xlsx")
-    			file = File.join(Rails.root, 'app', 'files', 'china', "GeographyExtended-(#{site})--(999)--(Month_2017_10_1).xlsx")
+    	unless site == 'Domain' || Website.where(url: site.downcase).take
+    		Website.create!(url: site.downcase, valid_for_yandex: true, category: 0, status: 1, country_id: Country.where(name: "China").take.id)
+    		if File.join(Rails.root, 'app', 'files', 'china', "GeographyExtended-(#{site.downcase})--(999)--(Month_2017_10_1).xlsx")
+    			file = File.join(Rails.root, 'app', 'files', 'china', "GeographyExtended-(#{site.downcase})--(999)--(Month_2017_10_1).xlsx")
     			p file
     			unless file == ''
 				    xlsx = Roo::Spreadsheet.open(file)
 				    xlsx = Roo::Excelx.new(file)
-				   	Website.where(url: site).take.update(monthly_visits: xlsx.sheet(1).cell(1,'J'))
-				   	website = Website.where(url: site).take
+				   	Website.where(url: site.downcase).take.update(monthly_visits: xlsx.sheet(1).cell(1,'J'))
+				   	website = Website.where(url: site.downcase).take
 				    hash = xlsx.sheet(1).each(country: 'Country', share: 'Traffic share') do |hash|
 				    	unless Country.where(name: hash[:country]).take || hash[:country] == 'Country'
 				    		Country.create!(name: hash[:country])
