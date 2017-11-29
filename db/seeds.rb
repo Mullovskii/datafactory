@@ -49,14 +49,14 @@
 
 
 # SEED WEBSITES
-	# file = File.join(Rails.root, 'app', 'files', '2Jappan', 'TopSites-(Shopping)--(392)--(Month_2017_10_1).xlsx')
+	# file = File.join(Rails.root, 'app', 'files', 'china', 'TopSites-(Shopping)--(360)--(Month-2017-10-1).xlsx')
  #    xlsx = Roo::Spreadsheet.open(file)
  #    xlsx = Roo::Excelx.new(file)
  #    xlsx.sheet(1).column(1).each do |site|
  #    	unless site == 'Domain' || Website.where(url: site).take
- #    		Website.create!(url: site, valid_for_yandex: true, category: 0, status: 1, country_id: Country.where(name: "Japan").take.id)
- #    		if File.join(Rails.root, 'app', 'files', '2Jappan', "GeographyExtended-(#{site})--(999)--(Month_2017_10_1).xlsx")
- #    			file = File.join(Rails.root, 'app', 'files', '2Jappan', "GeographyExtended-(#{site})--(999)--(Month_2017_10_1).xlsx")
+ #    		Website.create!(url: site, valid_for_yandex: true, category: 0, status: 1, country_id: Country.where(name: "China").take.id)
+ #    		if File.join(Rails.root, 'app', 'files', 'china', "GeographyExtended-(#{site})--(999)--(Month_2017_10_1).xlsx")
+ #    			file = File.join(Rails.root, 'app', 'files', 'china', "GeographyExtended-(#{site})--(999)--(Month_2017_10_1).xlsx")
  #    			p file
  #    			unless file == ''
 	# 			    xlsx = Roo::Spreadsheet.open(file)
@@ -95,14 +95,18 @@
 	# 	end
 	# end
 
-	mother_country = Country.where(name: "Japan").take
-		Traffic.where(mother_country_id: mother_country.id).each do |traffic|
-			if traffic.website.valid_for_yandex
-				if inflow = Inflow.where(exporter_country_id: mother_country.id, importer_country_id: traffic.country_id).take
-					inflow.update!(annual_turnover: inflow.annual_turnover + traffic.annual_turnover)
-				else
-					Inflow.create!(exporter_country_id: mother_country.id, importer_country_id: traffic.country_id, annual_turnover: traffic.annual_turnover)
-				end
-			end
-		end
+# mother_country = Country.where(name: "China").take
+# Inflow.where(exporter_country_id: mother_country.id).destroy_all
+
+
+	# mother_country = Country.where(name: "China").take
+	# 	Traffic.where(mother_country_id: mother_country.id).each do |traffic|
+	# 		if traffic.website.valid_for_yandex
+	# 			if inflow = Inflow.where(exporter_country_id: mother_country.id, importer_country_id: traffic.country_id).take
+	# 				inflow.update!(annual_turnover: inflow.annual_turnover + traffic.annual_turnover)
+	# 			else
+	# 				Inflow.create!(exporter_country_id: mother_country.id, importer_country_id: traffic.country_id, annual_turnover: traffic.annual_turnover)
+	# 			end
+	# 		end
+	# 	end
 
