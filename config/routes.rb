@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :countries do
   	member do
     	get 'buys_from'
+      get 'buys_from_countries'
     	get 'internal_turnover'
     	get 'foreign_buyers'
       get 'payment_systems'
