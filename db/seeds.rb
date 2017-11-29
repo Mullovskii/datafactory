@@ -95,8 +95,8 @@
 	# 	end
 	# end
 
-# mother_country = Country.where(name: "China").take
-# Inflow.where(exporter_country_id: mother_country.id).destroy_all
+mother_country = Country.where(name: "China").take
+Inflow.where(exporter_country_id: mother_country.id).destroy_all
 
 
 	# mother_country = Country.where(name: "China").take
