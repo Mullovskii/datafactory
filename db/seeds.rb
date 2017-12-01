@@ -95,11 +95,11 @@
 	# 	end
 	# end
 
-mother_country = Country.where(name: "Hong Kong").take
+mother_country = Country.where(name: "United States").take
 Inflow.where(exporter_country_id: mother_country.id).destroy_all
 
 
-	mother_country = Country.where(name: "Hong Kong").take
+	mother_country = Country.where(name: "United States").take
 		Traffic.where(mother_country_id: mother_country.id).each do |traffic|
 			if traffic.website.valid_for_yandex
 				if inflow = Inflow.where(exporter_country_id: mother_country.id, importer_country_id: traffic.country_id).take
